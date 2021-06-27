@@ -1,6 +1,35 @@
 <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Digite o CEP cujo endereço deseja consultar:</mat-label>
-      <input type="text" mati  placeholder="Ex. Pizza" value="Sushi">
-    </mat-form-field>
+      <label>Digite o CEP cujo endereço deseja consultar:</label>
+      <input type="text"  placeholder="Ex. Pizza" value="Sushi">
 </form>
+
+<table mat-table class="mat-elevation-z8">
+  <tr>
+    <td>Cep:</td>
+    <td>{{address.cep}}</td>
+  </tr>
+  <tr>
+    <td>Rua:</td>
+    <td>{{address.logradouro}}</td>
+  </tr>
+  <tr>
+    <td>Complemento:</td>
+    <td>{{address.complemento}}</td>
+  </tr>
+  <tr>
+    <td>Bairro:</td>
+    <td>{{address.bairro}}</td>
+  </tr>
+  <tr>
+    <td>Cidade:</td>
+    <td>{{address.localidade}}</td>
+  </tr>
+  <tr>
+    <td>UF:</td>
+    <td>{{address.uf}}</td>
+  </tr>
+  <tr>
+    <td>DDD:</td>
+    <td>{{address.ddd}}</td>
+  </tr>
+</table>

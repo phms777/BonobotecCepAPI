@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Address from 'src/app/models/Address';
+
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  address: Address;
+  constructor() {
+    this.address = {
+      cep: '',
+      logradouro: '',
+      complemento: '',
+      bairro: '',
+      localidade: '',
+      uf: '',
+      ibge: '',
+      gia: '',
+      ddd: '',
+      siafi: ''
+    }
+  }
 
   ngOnInit(): void {
   }
