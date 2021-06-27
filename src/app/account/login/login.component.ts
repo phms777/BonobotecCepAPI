@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Login from 'src/app/models/login';
-import { AccountService } from '../shared/account.service';
+import { AccountService } from 'src/app/Services/account.service';
+
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
       const result = await this.accountService.login(this.login);
       console.log(`login-efetuado: ${result}`);
       this.router.navigate(['']);
-      
+
     } catch (error) {
       console.log(error);
     }
