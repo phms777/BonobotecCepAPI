@@ -1,7 +1,8 @@
-<form (ngSubmit)="onSubmit()" #form="ngForm">
+<form (ngSubmit)="onSubmit()" #form="ngForm" id="form">
+    <p>Realize seu login com e-mail e senha: </p>
     <div class="form-group">
         <label>E-mail</label>
-        <input class="form-control" type="email" name="email" id="email" [(ngModel)]="login.email" required/>
+        <input class="form-control" type="email" name="email" id="email" [(ngModel)]="login.email" size="30" required/>
     </div>
 
     <div class="form-group">

@@ -41,6 +41,27 @@ export class HomeComponent implements OnInit {
       .then(result =>
         this.address = result as Address
       )
+    }
+    else
+    {
+      this.clearAdressObject();
+      var input = document.getElementsByTagName("input");
+
+    }
+  }
+
+  clearAdressObject() {
+    this.address = {
+      cep: '',
+      logradouro: '',
+      complemento: '',
+      bairro: '',
+      localidade: '',
+      uf: '',
+      ibge: '',
+      gia: '',
+      ddd: '',
+      siafi: ''
     }    
   }
 }
