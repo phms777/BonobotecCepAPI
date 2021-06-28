@@ -13,17 +13,11 @@ const httpOptions = {
 })
 export class AccountService {
 
-  private url = 'https://localhost:44331/api/';
+  private url = 'https://localhost:44331/';
 
   constructor(private http: HttpClient) { }
 
-  login(user: Login ) {
+  login(user: Login ): Promise<any> {
       return this.http.post(this.url+'user', user, httpOptions).toPromise();
-  }
-
-  createAccount(account: any){
-    return new Promise ((resolve) => {
-      resolve (true);
-    })
   }
 }

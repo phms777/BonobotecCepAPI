@@ -2,6 +2,7 @@
 using back_end.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace back_end.Controllers
 {
@@ -16,7 +17,18 @@ namespace back_end.Controllers
         [HttpPost("user")]
         public ActionResult<dynamic> UserAuthenticate([FromBody] Login login)
         {
-            return new AuthenticationService(_configuration).GenerateToken(login);
+            
+            var token = new AuthenticationService(_configuration).GenerateToken(login);
+            if(!String.IsNullOrEmpty(token))
+            {
+                login.token = token;
+                login.password = "";
+                return login;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

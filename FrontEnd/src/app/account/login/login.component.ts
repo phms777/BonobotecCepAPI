@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Login from 'src/app/models/login';
 import { AccountService } from 'src/app/Services/account.service';
+import { AuthGuard } from '../shared/auth.guard';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
     this.login = {
       email: '',
       password: '',    
+      token:'',
     }
   }
 
@@ -24,12 +26,22 @@ export class LoginComponent implements OnInit {
 
   async onSubmit () {
     try{
-      const result = await this.accountService.login(this.login);
-      console.log(`login-efetuado: ${result}`);
-      this.router.navigate(['']);
-
+      this.accountService.login(this.login)
+      .then(data=> this.resolve(data))
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  resolve(data: Login) {
+    if(data.token!=null)
+    {
+      localStorage.setItem('token', data.token);
+      this.router.navigate(['']);
+    }
+    else
+    {
+      this.router.navigate(['']);
     }
   }
 
