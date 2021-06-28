@@ -34,15 +34,25 @@ export class LoginComponent implements OnInit {
   }
 
   resolve(data: Login) {
-    if(data.token!=null)
+    if(data!=null)
     {
-      localStorage.setItem('token', data.token);
-      this.router.navigate(['']);
+      if(data.token!=null)
+      {
+        localStorage.setItem('token', data.token);
+        this.router.navigate(['']);
+      }
+      else
+      {
+        window.alert("Senha e/ou e-mail invalidos. Tente novamente!")
+        this.router.navigate(['']);
+      }
     }
     else
     {
+      window.alert("Senha e/ou e-mail invalidos. Tente novamente!")
       this.router.navigate(['']);
     }
+    
   }
 
 }
