@@ -9,6 +9,8 @@ import { AuthenticationComponent } from './layout/authentication/authentication.
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { AddressService } from './Services/address.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,16 +19,20 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     CreateAccountComponent,
     HomeComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+    AddressService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

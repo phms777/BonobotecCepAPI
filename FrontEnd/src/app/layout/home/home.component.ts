@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Address from 'src/app/models/Address';
+import { AddressService } from 'src/app/Services/address.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import Address from 'src/app/models/Address';
 export class HomeComponent implements OnInit {
 
   address: Address;
-  constructor() {
+  constructor(private addressService: AddressService) {
     this.address = {
       cep: '',
       logradouro: '',
@@ -28,4 +29,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getAddress(cepEvent: any) 
+  {
+    var cep = cepEvent.target.value;
+    cep = cep.replace(/\D/g,'');
+    var validarCep = /^[0-9]{8}$/;
+    validarCep.test(cep)
+    if(validarCep.test(cep))
+    {      
+      this.addressService.getAddress(cep)
+      .then(result =>
+        this.address = result as Address
+      )
+    }    
+  }
 }

@@ -1,7 +1,6 @@
-<form class="example-form">
-      <label>Digite o CEP cujo endereço deseja consultar:</label>
-      <input type="text"  placeholder="Ex. Pizza" value="Sushi">
-</form>
+      <label for="cep">Digite o CEP cujo endereço deseja consultar:</label>
+      <input type="text"  id="cep" name="cep" ngModel required #cep="ngModel" (blur)="getAddress($event)" placeholder="99.999-999" >
+      
 
 <table mat-table class="mat-elevation-z8">
   <tr>
@@ -11,10 +10,6 @@
   <tr>
     <td>Rua:</td>
     <td>{{address.logradouro}}</td>
-  </tr>
-  <tr>
-    <td>Complemento:</td>
-    <td>{{address.complemento}}</td>
   </tr>
   <tr>
     <td>Bairro:</td>

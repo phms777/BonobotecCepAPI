@@ -2,19 +2,15 @@
 using back_end.Models;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace back_end.Services
 {
     public class AddressService : IAddressService
     {
- 
+
         HttpService _http = new HttpService();
 
         public async Task<Address> GetAddressAsync(string cep)

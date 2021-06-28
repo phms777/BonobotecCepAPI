@@ -1,12 +1,7 @@
 ﻿using back_end.IServices;
 using back_end.Models;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace back_end.Controllers
 {
@@ -16,7 +11,7 @@ namespace back_end.Controllers
 
         IAddressService _adressService;
 
-        public CepController (IAddressService addressService)
+        public CepController(IAddressService addressService)
         {
             _adressService = addressService;
         }
